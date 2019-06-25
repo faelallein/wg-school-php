@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("../config/config.php");
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -10,12 +11,10 @@ session_start();
   <meta name="author" content="Allein dev WG">
   <meta name="generator" content="Allein">
   <title>WG School Painel Login</title>
-
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo DIRCSS;?>/bootstrap.min.css">
   <!-- Custom styles for this template -->
-  <link href="css/signin.css" rel="stylesheet">
-
+  <link href="<?php echo DIRCSS;?>/signin.css" rel="stylesheet">
   <style>
   .bd-placeholder-img {
     font-size: 1.125rem;
@@ -25,23 +24,15 @@ session_start();
     -ms-user-select: none;
     user-select: none;
   }
-
   @media (min-width: 768px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }
   }
   </style>
-
-
 </head>
 <body class="text-center" >
-  <?php
-  //Destroi a sessão, para não causar error.
-  unset($_SESSION['userId'], $_SESSION['userNome']);
-  ?>
-  <form class="form-signin" method="POST" action="processamento/valida_login.php">
-    <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <form class="form-signin" method="POST" action="<?php echo DIRPAGE?>processamento/valida_login.php">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail" class="sr-only">User</label>
     <input type="text" name="user" class="form-control" placeholder="User" required autofocus>
@@ -63,7 +54,10 @@ session_start();
       if(isset($_SESSION['loginErro'])){
         echo $_SESSION['loginErro'];
         unset($_SESSION['loginErro']);}
+
+        //var_dump(DIRREQ);
         ?></p>
+        <h1></h1>
         <p class="mt-5 mb-3 text-muted">&copy; Allein 2017-2019</p>
       </form>
     </body>

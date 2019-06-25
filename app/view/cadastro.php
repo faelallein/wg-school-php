@@ -3,12 +3,13 @@
     <div class="jumbotron">
       <div class="container">
         <h3 class="display-4">Cadastro de <?php
+        $lc = $_GET['lc'];
         //Define o Titulo
-        if($link == 1){echo 'Aluno';}else{echo 'Professor';}?>
+        if($lc == 1){echo 'Aluno';}else{echo 'Professor';}?>
       </h3>
       </div>
     </div>
-    <form class="p-2" method="POST" action="processamento/proc_cad.php">
+    <form class="p-2" method="POST" action="../../processamento/proc_cad.php">
       <div class="col-sm-5">
         <div class="mb-3">
           <label for="firstName">Nome</label>

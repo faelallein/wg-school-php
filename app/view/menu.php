@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-<a class="navbar-brand" href="#">Wg School</a>
+<h2><a class="navbar-brand badge badge-info" href="#">Wg School</a></h2>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
@@ -21,11 +21,10 @@
     <li class='nav-item dropdown'>
       <a class='nav-link dropdown-toggle' href='#' id='dropdown01' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Painel</a>
       <div class='dropdown-menu' aria-labelledby='dropdown01'>
-        <a class='dropdown-item' href='painel.php?link=1'>Cadastrar Aluno</a>
-        <a class='dropdown-item' href='painel.php?link=2'>Cadastrar Professor</a>
-        <a class='dropdown-item' href='painel.php?link=3'>Listar alunos</a>
-        <a class='dropdown-item' href='painel.php?link=4'>Listar Professores</a>
-        <a class='dropdown-item' href='#'>Perfil aluno</a>
+        <a class='dropdown-item' href='painel.php?link=1&lc=1'>Cadastrar Aluno</a>
+        <a class='dropdown-item' href='painel.php?link=1&lc=2'>Cadastrar Professor</a>
+        <a class='dropdown-item' href='painel.php?link=2&lc=1'>Listar alunos</a>
+        <a class='dropdown-item' href='painel.php?link=2&lc=2'>Listar Professores</a>
       </div>
     </li>
   </ul>";}
@@ -40,8 +39,8 @@
       <li class='nav-item dropdown'>
         <a class='nav-link dropdown-toggle' href='#' id='dropdown01' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Painel</a>
         <div class='dropdown-menu' aria-labelledby='dropdown01'>
-          <a class='dropdown-item' href='painel.php?link=3'>Listar alunos</a>
-          <a class='dropdown-item' href='#>Lançar notas</a>
+          <a class='dropdown-item' href='painel.php?link=2&lc=1'>Listar alunos</a>
+          <a class='dropdown-item' href='#'>Lançar notas</a>
           <a class='dropdown-item' href='#'>Recados para alunos</a>
         </div>
       </li>
@@ -66,6 +65,6 @@
     }
     echo "<p style='color:white;margin-right:20px;margin-bottom:5px;'>".$_SESSION['userName']."</p>";
 ?>
-<a role="button" aria-pressed="true" class="btn btn-outline-danger my-2 my-sm-0" href="processamento/sair.php">Sair</a>
+<a role="button" aria-pressed="true" class="btn btn-outline-danger my-2 my-sm-0" href="<?php echo DIRPAGE;?>processamento/sair.php">Sair</a>
 </div>
 </nav>

@@ -1,8 +1,9 @@
 <!doctype html>
 <?php
 session_start();
-include_once('processamento/seguranca.php');
-include_once('processamento/conexao.php');
+require_once('../../config/config.php');
+include_once(DIRREQ.'processamento/seguranca.php');
+include_once(DIRCONFIG.'/conexao.php');
 ?>
 <html lang="pt-br">
   <head>
@@ -12,8 +13,8 @@ include_once('processamento/conexao.php');
     <meta name="author" content="">
     <meta name="generator" content="">
     <title>Painel do <?php echo $_SESSION['nivel']?></title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo DIRCSS;?>/bootstrap.min.css">
+    <link href="<?php echo DIRCSS;?>/bootstrap-grid.min.css" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -29,35 +30,36 @@ include_once('processamento/conexao.php');
         }
       }
     </style>
-    <link href="jumbotron.css" rel="stylesheet">
+    <link href="<?php echo DIRCSS;?>jumbotron.css" rel="stylesheet">
   </head>
   <body>
     <?php
     //Chama o NavBar
-    include_once("menu.php");
+    include_once(DIRVIEW."/menu.php");
     //Dinamiza a pagina que sera apresentada.
     $link = $_GET['link'];
     //Define o array das paginas do link.
-    $page[0] = 'inicio.php';
-    $page[1] = 'cadastro.php';
-    $page[2] = 'cadastro.php';
-    $page[3] = 'lista_alunos.php';
-    $page[4] = 'lista_professor.php';
+    $page[0] = DIRVIEW.'/inicio.php';
+    $page[1] = DIRVIEW.'/cadastro.php';
+    $page[2] = DIRVIEW.'/lista.php';
+    $page[3] = DIRVIEW.'/editar.php';
+    $page[4] = DIRVIEW.'/visualiza.php';
     //Garante que a pagina inicial vai ser apresentada sempre qua a variavel link estivar vazia.
     if(!empty($link)){
       if(file_exists($page[$link])){
       include $page[$link];
     }else{
-        include 'inicio.php';
+        include DIRVIEW.'/inicio.php';
       }}else{
-      include 'inicio.php';}
+      include DIRVIEW.'/inicio.php';
+    }
     ?>
 
 <footer class="container">
   <p class="mt-5 mb-3 text-muted">&copy; Allein 2017-2019</p>
 </footer>
-<script type="text/javascript" src="js/jquery-slim.js"></script>
-      <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"></script>')</script>
-      <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo DIRJS;?>/jquery-slim.js"></script>
+      <script>window.jQuery || document.write('<script src="<?php echo DIRJS;?>/jquery-slim.min.js"></script>')</script>
+      <script src="<?php echo DIRJS;?>/bootstrap.bundle.min.js" type="text/javascript"></script>
     </body>
 </html>

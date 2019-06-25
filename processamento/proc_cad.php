@@ -1,7 +1,7 @@
 <?php
   session_start();
   include_once('seguranca.php');
-  include_once('conexao.php');
+  include_once('../config/conexao.php');
 
   $nome = $_POST['name'];
   $user = $_POST['user'];
@@ -17,8 +17,8 @@
 
   if($conectar->affected_rows != 0 ){
     if($link == 1){
-    echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://dev.allein.wg/painel.php?link=3'>";}
-    else{
-    echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://dev.allein.wg/painel.php?link=4'>";}
+      echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=".DIRPAGE."app/view/painel.php?link=2&lc=1'>";}
+      else{
+      echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=".DIRPAGE."app/view/painel.php?link=2&lc=2'>";}
   }
  ?>
